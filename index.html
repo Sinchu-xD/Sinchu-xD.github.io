@@ -3,32 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sinchu | Systems & Full-Stack Engineer | Real-Time Media, WebRTC & High-Concurrency Systems</title>
-  <meta name="description" content="Portfolio of Sinchu (Sinchu-xD) - Full-Stack Engineer specializing in Real-Time WebRTC Media, Distributed Video Streaming, Reverse-Engineered APIs, and Ultra-Fast Python/Node.js Libraries." />
+  <title>Abhishek Thakur (Sinchu) — Systems & Real-Time Media Engineer</title>
+  <meta name="description" content="Senior Systems & Full-Stack Engineer specializing in WebRTC ORTC pipelines, HLS/M3U8 distributed video streaming, reverse-engineered protocol architectures, and high-concurrency Python & Node.js infrastructure." />
   
-  <!-- Fonts -->
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+  <!-- Inter & JetBrains Mono Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cabinet+Grotesk:wght@700;800;900&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome -->
+  <!-- Font Awesome Pro icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
     :root {
-      --bg: #07090e;
-      --bg-card: rgba(15, 20, 31, 0.7);
-      --bg-card-hover: rgba(22, 30, 48, 0.85);
+      --bg: #030712;
+      --bg-surface: #0b0f19;
+      --bg-card: rgba(15, 23, 42, 0.65);
+      --bg-card-hover: rgba(30, 41, 59, 0.85);
       --border: rgba(255, 255, 255, 0.08);
-      --border-highlight: rgba(99, 102, 241, 0.35);
-      --text-main: #f1f5f9;
+      --border-accent: rgba(99, 102, 241, 0.4);
+      --text: #f8fafc;
       --text-muted: #94a3b8;
+      --text-dim: #64748b;
       --primary: #6366f1;
-      --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
-      --accent-cyan: #06b6d4;
-      --accent-emerald: #10b981;
-      --accent-amber: #f59e0b;
-      --code-bg: #0c101a;
+      --primary-light: #818cf8;
+      --secondary: #a855f7;
+      --cyan: #06b6d4;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --code-bg: #050811;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
     }
 
     * {
@@ -37,45 +47,73 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       background-color: var(--bg);
-      color: var(--text-main);
+      color: var(--text);
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       line-height: 1.6;
       overflow-x: hidden;
       position: relative;
+      selection-background-color: var(--primary);
+      selection-color: #ffffff;
     }
 
-    /* Ambient background glowing orbs */
-    .glow-orb {
+    ::selection {
+      background: rgba(99, 102, 241, 0.35);
+      color: #fff;
+    }
+
+    /* Subtle background grid pattern */
+    .bg-grid {
       position: fixed;
-      border-radius: 50%;
-      filter: blur(140px);
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-size: 60px 60px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
       pointer-events: none;
       z-index: 0;
-      opacity: 0.15;
     }
-    .orb-1 { width: 500px; height: 500px; background: #6366f1; top: -100px; left: -100px; }
-    .orb-2 { width: 450px; height: 450px; background: #a855f7; top: 40%; right: -150px; }
-    .orb-3 { width: 400px; height: 400px; background: #06b6d4; bottom: -100px; left: 30%; }
 
-    /* Container */
+    /* Ambient glow elements */
+    .glow-canvas {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      filter: blur(160px);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+    }
+    .glow-1 { top: -150px; left: -100px; background: #4f46e5; }
+    .glow-2 { top: 35%; right: -200px; background: #9333ea; }
+    .glow-3 { bottom: -100px; left: 30%; background: #0891b2; }
+
     .container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
       position: relative;
-      z-index: 1;
+      z-index: 10;
     }
 
     /* Navbar */
-    nav {
+    header {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(20px);
-      background: rgba(7, 9, 14, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      background: rgba(3, 7, 18, 0.8);
       border-bottom: 1px solid var(--border);
-      z-index: 100;
+      z-index: 1000;
       padding: 16px 0;
     }
     .nav-inner {
@@ -84,80 +122,118 @@
       align-items: center;
     }
     .brand {
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.5px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
       color: #fff;
     }
-    .brand-badge {
-      background: var(--primary-gradient);
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+    .avatar-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 900;
-      font-size: 0.95rem;
+      font-weight: 800;
+      font-size: 1rem;
       color: #fff;
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-weight: 700;
+      font-size: 0.98rem;
+      letter-spacing: -0.3px;
+    }
+    .brand-role {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--text-dim);
     }
     .nav-links {
       display: flex;
-      gap: 28px;
       align-items: center;
+      gap: 32px;
     }
-    .nav-links a {
+    .nav-link {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 500;
-      transition: all 0.2s;
+      transition: color 0.2s;
     }
-    .nav-links a:hover {
+    .nav-link:hover {
       color: #fff;
     }
-    .btn-hire {
-      background: var(--primary-gradient);
-      color: #fff !important;
-      padding: 8px 18px;
-      border-radius: 8px;
-      font-weight: 600 !important;
-      transition: transform 0.2s, box-shadow 0.2s;
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .btn-github {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 1.15rem;
+      padding: 8px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      transition: all 0.2s;
       display: inline-flex;
       align-items: center;
       gap: 8px;
     }
-    .btn-hire:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+    .btn-github:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .btn-contact {
+      background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+      color: #fff;
+      text-decoration: none;
+      padding: 9px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 4px 18px rgba(99, 102, 241, 0.35);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .btn-contact:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.5);
     }
 
-    /* Hero Section */
+    /* Hero */
     .hero {
-      padding: 100px 0 70px;
-      text-align: center;
+      padding: 90px 0 60px;
     }
-    .hero-badge {
+    .status-pill {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.25);
-      color: #818cf8;
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-size: 0.82rem;
-      font-weight: 600;
+      gap: 9px;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #34d399;
       margin-bottom: 24px;
-      letter-spacing: 0.3px;
     }
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
+    .pulse-green {
+      width: 7px;
+      height: 7px;
       background: #10b981;
       border-radius: 50%;
       box-shadow: 0 0 10px #10b981;
@@ -165,129 +241,256 @@
     }
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.85); }
+      50% { opacity: 0.4; transform: scale(0.8); }
     }
-    .hero-title {
-      font-size: 3.8rem;
+    .hero-h1 {
+      font-size: 4rem;
       font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -1.5px;
-      max-width: 950px;
-      margin: 0 auto 24px;
+      letter-spacing: -2px;
+      line-height: 1.1;
+      margin-bottom: 24px;
+      max-width: 980px;
     }
     .gradient-text {
-      background: var(--primary-gradient);
+      background: linear-gradient(135deg, #818cf8 0%, #c084fc 50%, #f472b6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .hero-desc {
-      font-size: 1.2rem;
+    .hero-subtitle {
+      font-size: 1.22rem;
       color: var(--text-muted);
       max-width: 760px;
-      margin: 0 auto 36px;
+      line-height: 1.7;
+      margin-bottom: 40px;
       font-weight: 400;
     }
-    .hero-actions {
+    .hero-cta {
       display: flex;
-      justify-content: center;
+      align-items: center;
       gap: 16px;
       flex-wrap: wrap;
-      margin-bottom: 50px;
+      margin-bottom: 70px;
     }
-    .btn-primary {
-      background: var(--primary-gradient);
+    .btn-main {
+      background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
       color: #fff;
       padding: 14px 28px;
-      border-radius: 10px;
+      border-radius: var(--radius-md);
       font-weight: 600;
+      font-size: 0.98rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 1rem;
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
       transition: all 0.2s;
+      border: 1px solid rgba(255, 255, 255, 0.15);
     }
-    .btn-primary:hover {
+    .btn-main:hover {
       transform: translateY(-2px);
-      box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5);
+      box-shadow: 0 16px 36px rgba(79, 70, 229, 0.6);
     }
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.04);
-      color: #f1f5f9;
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.03);
       border: 1px solid var(--border);
-      padding: 14px 28px;
-      border-radius: 10px;
+      color: var(--text);
+      padding: 14px 26px;
+      border-radius: var(--radius-md);
       font-weight: 600;
+      font-size: 0.98rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 1rem;
       transition: all 0.2s;
     }
-    .btn-secondary:hover {
+    .btn-ghost:hover {
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.2);
     }
 
-    /* Stats strip */
-    .stats-strip {
+    /* Metrics Grid */
+    .metrics-bar {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      gap: 16px;
       margin-bottom: 90px;
-    }
-    .stat-card {
+      padding: 20px;
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-      text-align: center;
-      backdrop-filter: blur(10px);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(12px);
     }
-    .stat-number {
-      font-size: 2.2rem;
+    .metric-item {
+      padding: 12px 18px;
+      border-right: 1px solid var(--border);
+    }
+    .metric-item:last-child {
+      border-right: none;
+    }
+    .metric-value {
+      font-size: 2.3rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
-      margin-bottom: 4px;
+      letter-spacing: -1px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #fff;
     }
-    .stat-label {
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      font-weight: 500;
+    .metric-label {
+      color: var(--text-dim);
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      margin-top: 2px;
     }
 
-    /* Section Styling */
+    /* Section Headers */
     .section {
       padding: 60px 0 90px;
     }
-    .section-header {
-      margin-bottom: 48px;
-    }
-    .section-tag {
-      color: #818cf8;
+    .section-eyebrow {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.85rem;
+      color: var(--primary-light);
+      font-size: 0.82rem;
       font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       margin-bottom: 8px;
-      display: inline-block;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-eyebrow::before {
+      content: '//';
+      color: var(--text-dim);
     }
     .section-title {
-      font-size: 2.4rem;
+      font-size: 2.5rem;
       font-weight: 800;
       letter-spacing: -1px;
+      margin-bottom: 12px;
     }
-    .section-subtitle {
+    .section-desc {
       color: var(--text-muted);
       font-size: 1.05rem;
-      max-width: 600px;
-      margin-top: 8px;
+      max-width: 680px;
+      margin-bottom: 48px;
     }
 
-    /* Featured Projects Grid */
+    /* Architecture Visual Highlight Box */
+    .arch-spotlight {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+    }
+    .arch-spotlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #4f46e5, #9333ea, #06b6d4);
+    }
+    .arch-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding-bottom: 18px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .arch-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      padding: 4px 12px;
+      border-radius: 6px;
+      color: var(--primary-light);
+    }
+    .arch-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .arch-info h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.6px;
+      margin-bottom: 14px;
+    }
+    .arch-info p {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .arch-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .arch-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+    .arch-feature i {
+      color: #34d399;
+      margin-top: 4px;
+    }
+    .code-editor {
+      background: #02040a;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    .editor-bar {
+      background: #090e1a;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; }
+    .dot-1 { background: #ef4444; }
+    .dot-2 { background: #f59e0b; }
+    .dot-3 { background: #10b981; }
+    .editor-title {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      margin-left: 8px;
+    }
+    .editor-code {
+      padding: 20px;
+      line-height: 1.75;
+      color: #cbd5e1;
+      overflow-x: auto;
+    }
+    .syntax-kw { color: #f43f5e; font-weight: 600; }
+    .syntax-fn { color: #38bdf8; }
+    .syntax-str { color: #34d399; }
+    .syntax-comment { color: #64748b; font-style: italic; }
+    .syntax-num { color: #fbbf24; }
+
+    /* Flagship Projects Grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -296,214 +499,194 @@
     .project-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 32px;
-      backdrop-filter: blur(10px);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      backdrop-filter: blur(12px);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       position: relative;
-      overflow: hidden;
-    }
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: var(--primary-gradient);
-      opacity: 0;
-      transition: opacity 0.3s;
     }
     .project-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--border-highlight);
+      transform: translateY(-5px);
+      border-color: var(--border-accent);
       background: var(--bg-card-hover);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5);
     }
-    .project-card:hover::before {
-      opacity: 1;
-    }
-    .project-header {
+    .card-meta {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
+      align-items: center;
+      margin-bottom: 18px;
     }
-    .project-icon {
-      width: 48px;
-      height: 48px;
+    .badge-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.74rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .chip-pypi { background: rgba(6, 182, 212, 0.12); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
+    .chip-live { background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .chip-engine { background: rgba(168, 85, 247, 0.12); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .card-actions {
+      display: flex;
+      gap: 10px;
+    }
+    .action-icon-link {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+    .action-icon-link:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .project-name {
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+    .project-summary {
+      color: var(--text-muted);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .tech-tag {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.76rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+    }
+
+    /* Core Competencies Matrix */
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .matrix-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      backdrop-filter: blur(12px);
+    }
+    .matrix-icon {
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: rgba(99, 102, 241, 0.12);
       border: 1px solid rgba(99, 102, 241, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
-      color: #818cf8;
-    }
-    .project-links {
-      display: flex;
-      gap: 12px;
-    }
-    .project-link-btn {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .project-link-btn:hover {
-      color: #fff;
-    }
-    .project-title {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      letter-spacing: -0.5px;
-    }
-    .project-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 1.25rem;
+      color: var(--primary-light);
       margin-bottom: 20px;
     }
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: auto;
-    }
-    .tech-pill {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      padding: 4px 12px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      font-family: 'JetBrains Mono', monospace;
-      color: #cbd5e1;
-    }
-
-    /* Highlight badge on cards */
-    .card-badge {
-      font-size: 0.72rem;
+    .matrix-title {
+      font-size: 1.25rem;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: -0.4px;
       margin-bottom: 12px;
-      display: inline-block;
     }
-    .badge-live { background: rgba(16, 185, 129, 0.15); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.3); }
-    .badge-pypi { background: rgba(6, 182, 212, 0.15); color: #22d3ee; border: 1px solid rgba(6, 182, 212, 0.3); }
-    .badge-webrtc { background: rgba(236, 72, 153, 0.15); color: #f472b6; border: 1px solid rgba(236, 72, 153, 0.3); }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .skill-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-    }
-    .skill-card-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .skill-list {
+    .matrix-list {
       list-style: none;
       display: flex;
       flex-direction: column;
+      gap: 12px;
+    }
+    .matrix-item {
+      display: flex;
+      align-items: flex-start;
       gap: 10px;
-    }
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
+      line-height: 1.5;
     }
-    .skill-item i {
-      color: #818cf8;
+    .matrix-item i {
+      color: var(--primary-light);
       font-size: 0.8rem;
+      margin-top: 4px;
     }
 
-    /* Terminal Showcase Box */
-    .terminal-box {
-      background: var(--code-bg);
+    /* Engineering Principles / Philosophy */
+    .principles-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 36px;
+    }
+    .principle-box {
       border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      margin-top: 50px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    }
-    .terminal-header {
-      background: #131926;
-      padding: 12px 18px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .term-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .dot-red { background: #ef4444; }
-    .dot-yellow { background: #f59e0b; }
-    .dot-green { background: #10b981; }
-    .term-title {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-left: 10px;
-    }
-    .terminal-body {
+      background: rgba(11, 15, 25, 0.5);
+      border-radius: var(--radius-md);
       padding: 24px;
-      font-family: 'JetBrains Mono', monospace;
+    }
+    .principle-head {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .principle-sub {
+      color: var(--text-dim);
       font-size: 0.88rem;
-      line-height: 1.8;
-      color: #cbd5e1;
+      line-height: 1.6;
     }
-    .term-prompt { color: #818cf8; }
-    .term-comment { color: #64748b; }
-    .term-success { color: #34d399; }
 
-    /* CTA Section */
-    .cta-card {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(168, 85, 247, 0.08) 100%);
-      border: 1px solid var(--border-highlight);
+    /* Contact Banner */
+    .contact-card {
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.15) 0%, rgba(147, 51, 234, 0.1) 100%);
+      border: 1px solid var(--border-accent);
       border-radius: 24px;
-      padding: 60px 40px;
+      padding: 60px 48px;
       text-align: center;
+      margin: 40px 0;
       position: relative;
-      overflow: hidden;
-      margin-top: 40px;
     }
-    .cta-title {
-      font-size: 2.5rem;
+    .contact-title {
+      font-size: 2.8rem;
       font-weight: 800;
+      letter-spacing: -1.2px;
       margin-bottom: 16px;
-      letter-spacing: -1px;
     }
-    .cta-desc {
+    .contact-p {
       color: var(--text-muted);
       font-size: 1.15rem;
-      max-width: 650px;
+      max-width: 660px;
       margin: 0 auto 36px;
     }
-    .cta-buttons {
+    .contact-buttons {
       display: flex;
       justify-content: center;
       gap: 16px;
@@ -515,360 +698,418 @@
       border-top: 1px solid var(--border);
       padding: 40px 0;
       text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
+      color: var(--text-dim);
+      font-size: 0.88rem;
     }
-    .footer-links {
+    .footer-flex {
       display: flex;
-      justify-content: center;
-      gap: 24px;
-      margin-bottom: 16px;
-    }
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover {
-      color: #fff;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
-      .hero-title { font-size: 2.6rem; }
+    @media (max-width: 980px) {
+      .hero-h1 { font-size: 2.8rem; }
+      .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+      .metric-item { border: none; }
+      .arch-grid { grid-template-columns: 1fr; }
       .projects-grid { grid-template-columns: 1fr; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .stats-strip { grid-template-columns: repeat(2, 1fr); }
+      .matrix-grid { grid-template-columns: 1fr; }
+      .principles-strip { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Ambient Glow -->
-  <div class="glow-orb orb-1"></div>
-  <div class="glow-orb orb-2"></div>
-  <div class="glow-orb orb-3"></div>
+  <!-- Ambient Grid & Glow -->
+  <div class="bg-grid"></div>
+  <div class="glow-canvas glow-1"></div>
+  <div class="glow-canvas glow-2"></div>
+  <div class="glow-canvas glow-3"></div>
 
-  <!-- Navbar -->
-  <nav>
+  <!-- Header -->
+  <header>
     <div class="container nav-inner">
       <a href="#" class="brand">
-        <div class="brand-badge">S</div>
-        <span>Sinchu<span style="color: #818cf8;">.dev</span></span>
+        <div class="avatar-badge">AT</div>
+        <div class="brand-meta">
+          <span class="brand-name">Abhishek Thakur</span>
+          <span class="brand-role">@Sinchu-xD • Systems Engineer</span>
+        </div>
       </a>
-      <div class="nav-links">
-        <a href="#projects">Flagship Projects</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#skills">Skills</a>
-        <a href="https://github.com/Sinchu-xD" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-        <a href="mailto:abhiyanshicreation@gmail.com" class="btn-hire"><i class="fas fa-paper-plane"></i> Hire / Connect</a>
+      <nav class="nav-links">
+        <a href="#featured" class="nav-link">Architectures</a>
+        <a href="#projects" class="nav-link">Production Systems</a>
+        <a href="#competencies" class="nav-link">Core Matrix</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://github.com/Sinchu-xD" target="_blank" class="btn-github">
+          <i class="fab fa-github"></i> <span>GitHub</span>
+        </a>
+        <a href="mailto:abhiyanshicreation@gmail.com" class="btn-contact">
+          <i class="fas fa-paper-plane"></i> Get in Touch
+        </a>
       </div>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge">
-        <span class="pulse-dot"></span> Available for High-Impact Contract & Freelance Projects
+      <div class="status-pill">
+        <span class="pulse-green"></span>
+        <span>OPEN FOR HIGH-CONCURRENCY BACKEND & STREAMING CONTRACTS</span>
       </div>
-      
-      <h1 class="hero-title">
-        Engineering <span class="gradient-text">Real-Time WebRTC</span>, Video Streaming Pipelines & Scalable Backends.
+
+      <h1 class="hero-h1">
+        Engineering <span class="gradient-text">Real-Time WebRTC</span>, Video Streaming Pipelines & Protocol Infrastructure.
       </h1>
 
-      <p class="hero-desc">
-        Full-Stack Systems Developer with deep expertise in media delivery protocols (HLS/M3U8), WebRTC ORTC media pipelines, PyPI library authorship, and zero-leak reverse-engineered APIs.
+      <p class="hero-subtitle">
+        I design resilient, zero-leak streaming systems, WebRTC ORTC media pipelines, PyPI libraries, and reverse-engineered API gateways that handle terabytes of high-concurrency throughput without breaking.
       </p>
 
-      <div class="hero-actions">
-        <a href="#projects" class="btn-primary">
-          <i class="fas fa-layer-group"></i> Explore Flagship Systems
+      <div class="hero-cta">
+        <a href="#projects" class="btn-main">
+          <i class="fas fa-terminal"></i> View Production Systems
         </a>
-        <a href="https://github.com/Sinchu-xD" target="_blank" class="btn-secondary">
-          <i class="fab fa-github"></i> 140+ Repos on GitHub
+        <a href="https://github.com/Sinchu-xD" target="_blank" class="btn-ghost">
+          <i class="fab fa-github"></i> Explore 140+ Repositories
         </a>
       </div>
 
-      <!-- Stats Strip -->
-      <div class="stats-strip">
-        <div class="stat-card">
-          <div class="stat-number gradient-text">4+</div>
-          <div class="stat-label">PyPI Published Libraries</div>
+      <!-- Verified Production Metrics -->
+      <div class="metrics-bar">
+        <div class="metric-item">
+          <div class="metric-value">4+</div>
+          <div class="metric-label">Published PyPI Libraries</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number gradient-text">0ms</div>
-          <div class="stat-label">Zero-Leak Token Transcode</div>
+        <div class="metric-item">
+          <div class="metric-value">0ms</div>
+          <div class="metric-label">HMAC Media Token Overheads</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number gradient-text">4K</div>
-          <div class="stat-label">HLS Multi-Quality Streaming</div>
+        <div class="metric-item">
+          <div class="metric-value">4K/60</div>
+          <div class="metric-label">HLS Adaptive Multi-Bitrate</div>
         </div>
-        <div class="stat-card">
-          <div class="stat-number gradient-text">100%</div>
-          <div class="stat-label">Reverse-Engineered Toolkits</div>
+        <div class="metric-item">
+          <div class="metric-value">140+</div>
+          <div class="metric-label">GitHub Engineering Repos</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Featured Heavyweight Projects -->
-  <section class="section" id="projects">
+  <!-- Architecture Deep-Dive Spotlight -->
+  <section class="section" id="featured">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// PRODUCTION_SYSTEMS</span>
-        <h2 class="section-title">Flagship Architectures & Products</h2>
-        <p class="section-subtitle">
-          Battle-tested applications featuring complex networking, media streaming, WebRTC, and distributed concurrency.
-        </p>
+      <div class="section-eyebrow">SYSTEM_SPOTLIGHT</div>
+      <h2 class="section-title">Zero-Leak Media Gateway Architecture</h2>
+      <p class="section-desc">
+        A look into how I built CloudVideoPlayer Studio's zero-leak tokenized streaming pipeline to prevent upstream rate-limits, WAF blockades, and bandwidth bleeding.
+      </p>
+
+      <div class="arch-spotlight">
+        <div class="arch-top">
+          <span class="arch-tag">PRODUCTION PROTOCOL // DISTRIBUTED MEDIA VAULT</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #94a3b8;">
+            <i class="fas fa-circle-check" style="color: #34d399;"></i> LIVE AT CLOUDVIDEOPLAYER.ONLINE
+          </span>
+        </div>
+
+        <div class="arch-grid">
+          <div class="arch-info">
+            <h3>Ephemeral Tokenization & Proxy Failover</h3>
+            <p>
+              Upstream CDNs frequently blacklist datacenter IPs and throttle unauthenticated segment grabs. The MediaVault engine masks raw upstream URLs behind ephemeral HMAC signatures, automatically unmasks M3U8 chunk playlists on the fly, and guarantees continuous seekable playback.
+            </p>
+            <ul class="arch-features">
+              <li class="arch-feature">
+                <i class="fas fa-check"></i>
+                <span><strong>Zero Proxy Bandwidth Bleed:</strong> Isolates heavy 2–5MB TS video chunks onto direct CDN routes with spoofed referers, preserving metered proxy bandwidth strictly for 10KB API metadata extraction.</span>
+              </li>
+              <li class="arch-feature">
+                <i class="fas fa-check"></i>
+                <span><strong>Autonomous Failover & Blacklist:</strong> Dynamically purges HTTP 402 exhausted or WAF-flagged proxies into persistent disk storage, instantly rotating requests without user disruption.</span>
+              </li>
+              <li class="arch-feature">
+                <i class="fas fa-check"></i>
+                <span><strong>AI-Powered Subtitles:</strong> Ingests audio streams into Google Gemini Flash models for instantaneous real-time transcription without canned placeholders.</span>
+              </li>
+            </ul>
+            <a href="https://cloudvideoplayer.online" target="_blank" class="btn-main" style="padding: 10px 20px; font-size: 0.88rem;">
+              <i class="fas fa-arrow-up-right-from-square"></i> Visit Live Platform
+            </a>
+          </div>
+
+          <div class="code-editor">
+            <div class="editor-bar">
+              <span class="dot dot-1"></span>
+              <span class="dot dot-2"></span>
+              <span class="dot dot-3"></span>
+              <span class="editor-title">media-vault-pipeline.js</span>
+            </div>
+            <pre class="editor-code"><code><span class="syntax-comment">// Automatic failover & tokenized M3U8 rewriting</span>
+<span class="syntax-kw">async function</span> <span class="syntax-fn">requestTeraBoxWithAutoFailover</span>(config) {
+  <span class="syntax-kw">const</span> cleanPool = proxyManager.<span class="syntax-fn">getCleanProxies</span>();
+  
+  <span class="syntax-kw">for</span> (<span class="syntax-kw">let</span> attempt = <span class="syntax-num">0</span>; attempt &lt; cleanPool.length; attempt++) {
+    <span class="syntax-kw">const</span> agent = proxyManager.<span class="syntax-fn">getProxyAgent</span>();
+    <span class="syntax-kw">try</span> {
+      <span class="syntax-kw">const</span> res = <span class="syntax-kw">await</span> <span class="syntax-fn">axios</span>({ ...config, httpAgent: agent });
+      <span class="syntax-kw">if</span> (res.status === <span class="syntax-num">402</span> || res.data?.errno === <span class="syntax-num">400141</span>) {
+        proxyManager.<span class="syntax-fn">reportFailure</span>(agent.proxyUrl, res);
+        <span class="syntax-kw">continue</span>; <span class="syntax-comment">// Seamless in-flight retry</span>
+      }
+      <span class="syntax-kw">return</span> res;
+    } <span class="syntax-kw">catch</span> (err) {
+      proxyManager.<span class="syntax-fn">reportFailure</span>(agent.proxyUrl, err);
+    }
+  }
+}</code></pre>
+          </div>
+        </div>
       </div>
+    </div>
+  </section>
+
+  <!-- Heavyweight Projects Showcase -->
+  <section class="section" id="projects" style="background: rgba(11, 15, 25, 0.4); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+    <div class="container">
+      <div class="section-eyebrow">PRODUCTION_PORTFOLIO</div>
+      <h2 class="section-title">Engineered Products & Open-Source</h2>
+      <p class="section-desc">
+        A selection of real-world distributed architectures, WebRTC engines, and libraries authored and maintained by me.
+      </p>
 
       <div class="projects-grid">
 
-        <!-- 1. CloudVideoPlayer Studio (DiskWala) -->
+        <!-- Project 1: AyCalls -->
         <div class="project-card">
           <div>
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-play-circle"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/Sinchu-xD/diskwala" target="_blank" class="project-link-btn" title="Private Repo / Code Review"><i class="fab fa-github"></i></a>
-                <a href="https://cloudvideoplayer.online" target="_blank" class="project-link-btn" title="Live Production"><i class="fas fa-external-link-alt"></i></a>
+            <div class="card-meta">
+              <span class="badge-chip chip-pypi"><i class="fas fa-cube"></i> PyPI: aytgcalls</span>
+              <div class="card-actions">
+                <a href="https://github.com/Sinchu-xD/AyCalls" target="_blank" class="action-icon-link" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                <a href="https://pypi.org/project/aytgcalls/" target="_blank" class="action-icon-link" title="PyPI Package"><i class="fas fa-external-link-alt"></i></a>
               </div>
             </div>
-            <span class="card-badge badge-live">Live Production • Zero-Leak Streamer</span>
-            <h3 class="project-title">CloudVideoPlayer Studio</h3>
-            <p class="project-desc">
-              High-speed, zero-leak cinema streaming & cloud media downloader. Features automatic tokenized HMAC media masking, dynamic HLS VOD playlist rewriting, automated residential proxy failover (auto-purging dead proxies on HTTP 402/WAF blocks), and pure AI Gemini subtitle transcription.
+            <h3 class="project-name">AyCalls WebRTC Media Core</h3>
+            <p class="project-summary">
+              A high-performance WebRTC ORTC-level streaming library in Python that feeds raw video and 48 kHz stereo PCM audio directly into Telegram group voice chats. Engineered with zero dependency on pytgcalls or Telethon — controls MTProto signaling via Kurigram and DTLS-SRTP/RTP via aiortc with explicit SSRC pinning.
             </p>
           </div>
-          <div class="tech-stack">
-            <span class="tech-pill">Node.js</span>
-            <span class="tech-pill">HLS.js / M3U8</span>
-            <span class="tech-pill">FFmpeg</span>
-            <span class="tech-pill">HMAC Zero-Leak</span>
-            <span class="tech-pill">Gemini AI</span>
-            <span class="tech-pill">Proxy Failover</span>
+          <div class="tech-row">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">WebRTC</span>
+            <span class="tech-tag">aiortc</span>
+            <span class="tech-tag">ORTC Level RTP</span>
+            <span class="tech-tag">FFmpeg PCM</span>
+            <span class="tech-tag">DTLS-SRTP</span>
           </div>
         </div>
 
-        <!-- 2. AYCalls (PyPI: aytgcalls) -->
+        <!-- Project 2: AYChat -->
         <div class="project-card">
           <div>
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-phone-volume"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/Sinchu-xD/AyCalls" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a>
-                <a href="https://pypi.org/project/aytgcalls/" target="_blank" class="project-link-btn"><i class="fas fa-cube"></i></a>
+            <div class="card-meta">
+              <span class="badge-chip chip-engine"><i class="fas fa-network-wired"></i> Full-Stack Real-Time</span>
+              <div class="card-actions">
+                <a href="https://github.com/Sinchu-xD/AyChat" target="_blank" class="action-icon-link" title="GitHub Repo"><i class="fab fa-github"></i></a>
               </div>
             </div>
-            <span class="card-badge badge-pypi">PyPI Package • WebRTC Core</span>
-            <h3 class="project-title">AyCalls (aytgcalls)</h3>
-            <p class="project-desc">
-              A high-performance WebRTC & media streaming library in Python that streams audio & video into group voice calls. Built with zero dependencies on pytgcalls or Telethon — controls MTProto signaling via Kurigram and manages ICE/DTLS-SRTP/RTP at the ORTC level via aiortc, piping real-time 48kHz stereo PCM via FFmpeg.
+            <h3 class="project-name">AYChat Distributed Messenger</h3>
+            <p class="project-summary">
+              Original full-stack real-time communications ecosystem. Built on a cross-platform Flutter frontend (Android, iOS, Web, Windows, macOS, Linux) paired with an asynchronous FastAPI gateway, PostgreSQL 16 relational core, Redis 7 message brokers, WebRTC Coturn SFU for high-definition calling, and synchronized music rooms.
             </p>
           </div>
-          <div class="tech-stack">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">WebRTC / aiortc</span>
-            <span class="tech-pill">ORTC Level RTP</span>
-            <span class="tech-pill">DTLS-SRTP</span>
-            <span class="tech-pill">FFmpeg PCM</span>
-            <span class="tech-pill">PyPI</span>
+          <div class="tech-row">
+            <span class="tech-tag">Flutter</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">PostgreSQL 16</span>
+            <span class="tech-tag">Redis 7</span>
+            <span class="tech-tag">WebRTC / Coturn</span>
+            <span class="tech-tag">Elasticsearch</span>
           </div>
         </div>
 
-        <!-- 3. AYChat (Cross-Platform Flutter + FastAPI) -->
+        <!-- Project 3: AyTube -->
         <div class="project-card">
           <div>
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-comments"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/Sinchu-xD/AyChat" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a>
+            <div class="card-meta">
+              <span class="badge-chip chip-pypi"><i class="fas fa-cube"></i> PyPI: aytube</span>
+              <div class="card-actions">
+                <a href="https://github.com/Sinchu-xD/AyTube" target="_blank" class="action-icon-link" title="GitHub Repo"><i class="fab fa-github"></i></a>
+                <a href="https://pypi.org/project/aytube/" target="_blank" class="action-icon-link" title="PyPI Package"><i class="fas fa-external-link-alt"></i></a>
               </div>
             </div>
-            <span class="card-badge badge-webrtc">Distributed Messenger & WebRTC</span>
-            <h3 class="project-title">AYChat Messenger Engine</h3>
-            <p class="project-desc">
-              End-to-end secure, real-time messaging ecosystem supporting cross-platform clients (Flutter for Android, iOS, Web, Windows, macOS, Linux). Engineered on a FastAPI async gateway, PostgreSQL 16, Redis 7 clusters, WebRTC Coturn SFU for HD video calling, and synchronized real-time music listening.
+            <h3 class="project-name">AyTube Stream Extractor</h3>
+            <p class="project-summary">
+              Ultra-fast, zero-dependency alternative to pytube and yt-dlp in Python. Resolves raw 4K/1080p/Opus streams, decrypts signed cipher formats, injects authenticated session headers to bypass HTTP 403 throttling, and provides both a CLI and programmatic async streaming engine.
             </p>
           </div>
-          <div class="tech-stack">
-            <span class="tech-pill">Flutter</span>
-            <span class="tech-pill">FastAPI</span>
-            <span class="tech-pill">PostgreSQL 16</span>
-            <span class="tech-pill">Redis 7</span>
-            <span class="tech-pill">WebRTC / Coturn</span>
-            <span class="tech-pill">Elasticsearch</span>
+          <div class="tech-row">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Cipher Decryption</span>
+            <span class="tech-tag">DASH / Opus</span>
+            <span class="tech-tag">Reverse Engineering</span>
+            <span class="tech-tag">Zero Dependencies</span>
           </div>
         </div>
 
-        <!-- 4. AyTube (PyPI: aytube) -->
+        <!-- Project 4: JioSaavn Toolkit -->
         <div class="project-card">
           <div>
-            <div class="project-header">
-              <div class="project-icon"><i class="fab fa-youtube"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/Sinchu-xD/AyTube" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a>
-                <a href="https://pypi.org/project/aytube/" target="_blank" class="project-link-btn"><i class="fas fa-cube"></i></a>
+            <div class="card-meta">
+              <span class="badge-chip chip-pypi"><i class="fas fa-music"></i> Async Audio Toolkit</span>
+              <div class="card-actions">
+                <a href="https://github.com/Sinchu-xD/JioSaavn" target="_blank" class="action-icon-link" title="GitHub Repo"><i class="fab fa-github"></i></a>
               </div>
             </div>
-            <span class="card-badge badge-pypi">Published PyPI Library</span>
-            <h3 class="project-title">AyTube Stream Extractor</h3>
-            <p class="project-desc">
-              Ultra-fast, lightweight alternative to pytube and yt-dlp in Python with zero heavy dependencies. Resolves 4K/1080p/Opus direct audio & video streams, bypasses HTTP 403 throttling, extracts signed cipher formats with full cookie injection, and provides high-speed CLI and programmatic streaming interfaces.
+            <h3 class="project-name">SaavnAPI Async Audio Framework</h3>
+            <p class="project-summary">
+              Asynchronous Python framework boasting 70+ features for cloud audio extraction: lossless 320kbps/FLAC stream unmasking, AI mood analysis, automatic playlist cross-synchronization with Spotify and YouTube, and built-in GraphQL/WebSocket streaming server implementations.
             </p>
           </div>
-          <div class="tech-stack">
-            <span class="tech-pill">Python</span>
-            <span class="tech-pill">Reverse Engineering</span>
-            <span class="tech-pill">Stream Decrypt</span>
-            <span class="tech-pill">Opus / DASH</span>
-            <span class="tech-pill">CLI Tool</span>
-            <span class="tech-pill">PyPI</span>
+          <div class="tech-row">
+            <span class="tech-tag">Asyncio</span>
+            <span class="tech-tag">aiohttp</span>
+            <span class="tech-tag">GraphQL</span>
+            <span class="tech-tag">WebSocket</span>
+            <span class="tech-tag">Lossless Audio</span>
           </div>
         </div>
 
-        <!-- 5. SaavnAPI (JioSaavn Async Toolkit) -->
+        <!-- Project 5: TgImport NEET LMS -->
         <div class="project-card">
           <div>
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-music"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/Sinchu-xD/JioSaavn" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a>
+            <div class="card-meta">
+              <span class="badge-chip chip-live"><i class="fas fa-graduation-cap"></i> Enterprise LMS</span>
+              <div class="card-actions">
+                <a href="https://github.com/Sinchu-xD/TgImport" target="_blank" class="action-icon-link" title="GitHub Repo"><i class="fab fa-github"></i></a>
               </div>
             </div>
-            <span class="card-badge badge-pypi">Async Audio API Framework</span>
-            <h3 class="project-title">SaavnAPI Async Framework</h3>
-            <p class="project-desc">
-              Comprehensive async Python toolkit for JioSaavn featuring 70+ capabilities: lossless FLAC/320kbps stream extraction, AI audio mood analysis, automatic cross-platform playlist sync with Spotify & YouTube, and built-in GraphQL/WebSocket streaming server implementations.
+            <h3 class="project-name">NEET LMS & MTProto Mirror Sync</h3>
+            <p class="project-summary">
+              Full-scale Learning Management System and automated mirror synchronization engine. Ingests, decrypts, and indexes multi-gigabyte video lectures, module PDFs, and chapter catalogs directly from Telegram channels into a responsive, filterable classroom dashboard.
             </p>
           </div>
-          <div class="tech-stack">
-            <span class="tech-pill">Asyncio / aiohttp</span>
-            <span class="tech-pill">Audio Transcode</span>
-            <span class="tech-pill">GraphQL</span>
-            <span class="tech-pill">WebSocket</span>
-            <span class="tech-pill">Spotify Sync</span>
+          <div class="tech-row">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">MTProto</span>
+            <span class="tech-tag">Video Indexing</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">Encrypted Sync</span>
           </div>
         </div>
 
-        <!-- 6. TgImport NEET LMS & Mirror Engine -->
+        <!-- Project 6: CloudVideoPlayer Studio -->
         <div class="project-card">
           <div>
-            <div class="project-header">
-              <div class="project-icon"><i class="fas fa-graduation-cap"></i></div>
-              <div class="project-links">
-                <a href="https://github.com/Sinchu-xD/TgImport" target="_blank" class="project-link-btn"><i class="fab fa-github"></i></a>
+            <div class="card-meta">
+              <span class="badge-chip chip-live"><i class="fas fa-play"></i> Production Platform</span>
+              <div class="card-actions">
+                <a href="https://cloudvideoplayer.online" target="_blank" class="action-icon-link" title="Live Website"><i class="fas fa-external-link-alt"></i></a>
+                <a href="https://github.com/Sinchu-xD/diskwala" target="_blank" class="action-icon-link" title="GitHub Repo"><i class="fab fa-github"></i></a>
               </div>
             </div>
-            <span class="card-badge badge-live">Enterprise Mirror Engine</span>
-            <h3 class="project-title">NEET LMS & Telegram Mirror Sync</h3>
-            <p class="project-desc">
-              Standalone Learning Management System (LMS) and mirror sync engine engineered for NEET educational curricula. Ingests, decrypts, and indexes multi-gigabyte video lectures, chapter notes, and question banks directly from encrypted channels into a unified interactive web classroom.
+            <h3 class="project-name">CloudVideoPlayer Cinema Engine</h3>
+            <p class="project-summary">
+              High-speed cinema streaming portal supporting 10+ cloud storage and video providers (DiskWala, TeraBox, YouTube, Instagram, Direct M3U8). Features adaptive HLS multi-quality selection (Auto, 4K, 1080p, 720p, 480p), persistent frame-accurate seeking, and bot honeypot protection.
             </p>
           </div>
-          <div class="tech-stack">
-            <span class="tech-pill">Full-Stack LMS</span>
-            <span class="tech-pill">Telegram MTProto</span>
-            <span class="tech-pill">Video Indexing</span>
-            <span class="tech-pill">Encrypted Sync</span>
-            <span class="tech-pill">React / Node.js</span>
+          <div class="tech-row">
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Express</span>
+            <span class="tech-tag">HLS.js</span>
+            <span class="tech-tag">FFmpeg Remuxing</span>
+            <span class="tech-tag">WAF Bypass</span>
           </div>
         </div>
 
       </div>
-
-      <!-- Live Terminal Code Preview -->
-      <div class="terminal-box" id="architecture">
-        <div class="terminal-header">
-          <span class="term-dot dot-red"></span>
-          <span class="term-dot dot-yellow"></span>
-          <span class="term-dot dot-green"></span>
-          <span class="term-title">sinchu@workstation:~ architecture-specs</span>
-        </div>
-        <div class="terminal-body">
-          <p><span class="term-prompt">$</span> <span style="color: #60a5fa;">cat</span> /etc/system-capabilities.json</p>
-          <pre style="margin: 12px 0; color: #a5b4fc;">
-{
-  "engineer": "Sinchu (Sinchu-xD)",
-  "specialization": ["Real-Time WebRTC / ORTC", "HLS/M3U8 Streaming", "Reverse Engineering", "Distributed Backends"],
-  "core_competencies": {
-    "media_protocols": "WebRTC, RTP/RTCP, ICE/DTLS-SRTP, HLS Adaptive Bitrate, MPEG-TS, DASH",
-    "reverse_engineering": "WAF Bypasses, Cloudflare Turnstile, Tokenized HMAC masking, Signature Generation",
-    "concurrency_management": "Asyncio pools, Undici connection pools, Cluster workers, PM2 production daemons",
-    "resilience": "Dynamic multi-proxy failover, bad_proxies persistent blacklisting, circuit-breaker retries"
-  },
-  "status": "<span class="term-success">OPEN_FOR_COMMERCIAL_PROJECTS</span>"
-}
-          </pre>
-          <p><span class="term-prompt">$</span> echo "Let's build something fast and resilient."</p>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- Technical Skills Breakdown -->
-  <section class="section" id="skills" style="background: rgba(15, 20, 31, 0.4); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <!-- Core Matrix / Competencies -->
+  <section class="section" id="competencies">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">// TECH_ARSENAL</span>
-        <h2 class="section-title">Technical Expertise</h2>
-        <p class="section-subtitle">The tools, protocols, and architectural patterns I leverage daily.</p>
+      <div class="section-eyebrow">TECHNICAL_MATRIX</div>
+      <h2 class="section-title">Core Engineering Competencies</h2>
+      <p class="section-desc">Specialized technical strengths proven through production deployments.</p>
+
+      <div class="matrix-grid">
+        <div class="matrix-card">
+          <div class="matrix-icon"><i class="fas fa-satellite-dish"></i></div>
+          <h3 class="matrix-title">Media & Real-Time Protocols</h3>
+          <ul class="matrix-list">
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> WebRTC (aiortc, ORTC signaling, Coturn SFU/TURN)</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> HLS (M3U8) dynamic playlist rewriting & VOD chunking</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Real-time FFmpeg transcoding, PCM piping & remuxing</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Adaptive Bitrate (ABR) frame-synchronized playback</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Opus, AAC, MPEG-TS, and DASH stream extractions</li>
+          </ul>
+        </div>
+
+        <div class="matrix-card">
+          <div class="matrix-icon"><i class="fas fa-server"></i></div>
+          <h3 class="matrix-title">Distributed Backend Engineering</h3>
+          <ul class="matrix-list">
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Python (Asyncio, aiohttp, FastAPI, PyPI packaging)</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Node.js (Express, Fastify, Undici connection pools)</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Redis 7 clustering, Pub/Sub & ephemeral memory caches</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> PostgreSQL 16 relational data modeling & indexing</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> PM2 cluster process management & Linux daemon tuning</li>
+          </ul>
+        </div>
+
+        <div class="matrix-card">
+          <div class="matrix-icon"><i class="fas fa-shield-halved"></i></div>
+          <h3 class="matrix-title">Reverse Engineering & WAF Resilience</h3>
+          <ul class="matrix-list">
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Private API reverse-engineering & signature spoofing</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Dynamic residential proxy rotation & circuit-breaker failover</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Bot honeypots, rate-limiters & anti-scraping countermeasures</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> Session harvesting, jsToken extraction & headless scraping</li>
+            <li class="matrix-item"><i class="fas fa-angle-right"></i> HMAC tokenization for zero-leak media protection</li>
+          </ul>
+        </div>
       </div>
 
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3 class="skill-card-title"><i class="fas fa-network-wired" style="color: #6366f1;"></i> Media & Streaming</h3>
-          <ul class="skill-list">
-            <li class="skill-item"><i class="fas fa-check"></i> WebRTC (aiortc, ORTC signaling, Coturn)</li>
-            <li class="skill-item"><i class="fas fa-check"></i> HLS / M3U8 chunk rewriting & VOD transcode</li>
-            <li class="skill-item"><i class="fas fa-check"></i> FFmpeg real-time muxing & PCM piping</li>
-            <li class="skill-item"><i class="fas fa-check"></i> Zero-leak masked token authorization</li>
-            <li class="skill-item"><i class="fas fa-check"></i> Adaptive Bitrate (4K, 1080p, 720p, 480p)</li>
-          </ul>
+      <!-- Principles -->
+      <div class="principles-strip">
+        <div class="principle-box">
+          <div class="principle-head">⚡ Performance Over Bloat</div>
+          <div class="principle-sub">I build zero-dependency libraries (like AyTube) that resolve requests in milliseconds without dragging hundreds of bloated packages.</div>
         </div>
-
-        <div class="skill-card">
-          <h3 class="skill-card-title"><i class="fas fa-server" style="color: #a855f7;"></i> Backend & Concurrency</h3>
-          <ul class="skill-list">
-            <li class="skill-item"><i class="fas fa-check"></i> Node.js (Express, Fastify, Undici pooling)</li>
-            <li class="skill-item"><i class="fas fa-check"></i> Python (Asyncio, aiohttp, FastAPI)</li>
-            <li class="skill-item"><i class="fas fa-check"></i> MTProto signaling (Kurigram, Telethon)</li>
-            <li class="skill-item"><i class="fas fa-check"></i> Redis 7 clustering & caching</li>
-            <li class="skill-item"><i class="fas fa-check"></i> PostgreSQL & SQLite distributed data</li>
-          </ul>
+        <div class="principle-box">
+          <div class="principle-head">🛡️ Resilient By Default</div>
+          <div class="principle-sub">Systems are built with automated circuit breakers, intelligent proxy failover, and self-healing memory pools that never leave users stranded on 500 errors.</div>
         </div>
-
-        <div class="skill-card">
-          <h3 class="skill-card-title"><i class="fas fa-shield-alt" style="color: #06b6d4;"></i> Reverse Eng & Security</h3>
-          <ul class="skill-list">
-            <li class="skill-item"><i class="fas fa-check"></i> Private API extraction & payload signing</li>
-            <li class="skill-item"><i class="fas fa-check"></i> Residential proxy rotation & auto-failover</li>
-            <li class="skill-item"><i class="fas fa-check"></i> Bot protection, honeypots & rate limiting</li>
-            <li class="skill-item"><i class="fas fa-check"></i> Automated token harvesting (jsToken, cookies)</li>
-            <li class="skill-item"><i class="fas fa-check"></i> PyPI packaging & CI/CD deployment</li>
-          </ul>
+        <div class="principle-box">
+          <div class="principle-head">🔒 Zero-Leak Security</div>
+          <div class="principle-sub">Upstream origins, private auth headers, and CDN signatures are never exposed to clients, ensuring total intellectual property protection.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
+  <!-- Contact CTA -->
   <section class="section">
     <div class="container">
-      <div class="cta-card">
-        <h2 class="cta-title">Have a Complex System or Backend in Mind?</h2>
-        <p class="cta-desc">
-          Whether you need a custom media streaming engine, high-speed scrapers, Telegram bots, or an end-to-end full-stack platform, I'm ready to engineer it.
+      <div class="contact-card">
+        <h2 class="contact-title">Let’s Engineer Something Resilient.</h2>
+        <p class="contact-p">
+          Need a custom video streaming infrastructure, high-concurrency WebRTC bot, custom scrapers, or full-stack backend development? I'm available for freelance and contract engagements.
         </p>
-        <div class="cta-buttons">
-          <a href="mailto:abhiyanshicreation@gmail.com" class="btn-primary">
-            <i class="fas fa-envelope"></i> Send an Email
+        <div class="contact-buttons">
+          <a href="mailto:abhiyanshicreation@gmail.com" class="btn-main">
+            <i class="fas fa-envelope"></i> Send an Email (abhiyanshicreation@gmail.com)
           </a>
-          <a href="https://github.com/Sinchu-xD" target="_blank" class="btn-secondary">
-            <i class="fab fa-github"></i> Inspect Code on GitHub
+          <a href="https://github.com/Sinchu-xD" target="_blank" class="btn-ghost">
+            <i class="fab fa-github"></i> Review Code on GitHub
           </a>
         </div>
       </div>
@@ -877,12 +1118,13 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="footer-links">
-        <a href="https://github.com/Sinchu-xD" target="_blank"><i class="fab fa-github"></i></a>
-        <a href="mailto:abhiyanshicreation@gmail.com"><i class="fas fa-envelope"></i></a>
+    <div class="container footer-flex">
+      <div>
+        <strong>Abhishek Thakur (Sinchu)</strong> — Systems, WebRTC & Media Protocol Engineer
       </div>
-      <p>© 2026 Sinchu (Sinchu-xD). Crafted for high performance & clean code.</p>
+      <div>
+        Built with clean semantic HTML & CSS. Zero heavy frameworks.
+      </div>
     </div>
   </footer>
 
